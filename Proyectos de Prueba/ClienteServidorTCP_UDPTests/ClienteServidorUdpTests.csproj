@@ -79,9 +79,9 @@
     <Compile Include="TestClienteServidorTcp.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\PeerToPeerTcpUdp\PeerToPeerTcpUdp.csproj">
+    <ProjectReference Include="..\..\PeerToPeerUdp\PeerToPeerUdp.csproj">
       <Project>{0acf9817-52fa-48c3-95c1-f313ab2d1712}</Project>
-      <Name>PeerToPeerTcpUdp</Name>
+      <Name>PeerToPeerUdp</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

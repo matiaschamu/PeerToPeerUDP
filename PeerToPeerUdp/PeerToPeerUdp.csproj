@@ -59,11 +59,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PeerToPeerTcpUdp.cs">
+    <Compile Include="PeerToPeerUdp.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="PeerToPeerTcpUdp.Designer.cs">
-      <DependentUpon>PeerToPeerTcpUdp.cs</DependentUpon>
+    <Compile Include="PeerToPeerUdp.Designer.cs">
+      <DependentUpon>PeerToPeerUdp.cs</DependentUpon>
     </Compile>
     <Compile Include="Commando.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

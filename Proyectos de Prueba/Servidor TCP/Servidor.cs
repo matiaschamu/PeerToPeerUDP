@@ -266,55 +266,59 @@ namespace Servidor_TCP
 
 		private void buttonEnviarCliente_Click(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.Send(textBoxDatosEnviados.Text);
+			//if (mClienteServidorUdp1.TipoSock == PeerToPeerTcpUdp.PeerToPeerUdp.eTipoSock.UDP)
+			//{
+				mClienteServidorUdp1.EndPointRemoto = new IPEndPoint(IPAddress.Parse(textBox1.Text), int.Parse(textBoxPuertoCliente.Text));
+			//}
+			mClienteServidorUdp1.Send(textBoxDatosEnviados.Text);
 			textBoxDatosEnviados.Clear();
 		}
 
 		private void buttonEnviarCommando_Click(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.SendComando(textBoxEnviarComando.Text, textBoxEnviarDato.Text);
+			mClienteServidorUdp1.SendComando(textBoxEnviarComando.Text, textBoxEnviarDato.Text);
 			textBoxEnviarDato.Clear();
 		}
 
 
 		private void buttonSetPuerto_Click(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.Listen(ushort.Parse(textBoxPuertoServidor.Text));
+			mClienteServidorUdp1.Listen(ushort.Parse(textBoxPuertoServidor.Text));
 		}
 
 		private void buttonunSet_Click(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.ListenStop();
+			mClienteServidorUdp1.ListenStop();
 		}
 
 		private void buttonConectar_Click(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.Connect(new IPEndPoint(IPAddress.Parse(textBox1.Text), int.Parse(textBoxPuertoCliente.Text)));
+			mClienteServidorUdp1.Connect(new IPEndPoint(IPAddress.Parse(textBox1.Text), int.Parse(textBoxPuertoCliente.Text)));
 		}
 
 		private void buttonDesConectar_Click(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.Disconnect();
+			mClienteServidorUdp1.Disconnect();
 		}
 
 		private void buttonSetInterval_Click(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.TiempomSegTestConexion = int.Parse(textBoxIntervalTest.Text);
+			mClienteServidorUdp1.TiempomSegTestConexion = int.Parse(textBoxIntervalTest.Text);
 		}
 
 		private void checkBoxTestConnect_CheckedChanged(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.TestearConexion = checkBoxTestConnect.Checked;
+			mClienteServidorUdp1.TestearConexion = checkBoxTestConnect.Checked;
 		}
 
 		private void checkBoxReConnect_CheckedChanged(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.ReConexionAutomatica = checkBoxReConnect.Checked;
+			mClienteServidorUdp1.ReConexionAutomatica = checkBoxReConnect.Checked;
 		}
 
 		private void checkBoxReListen_CheckedChanged(object sender, EventArgs e)
 		{
-			clienteServidorTCP_UDP1.ReListenAutomatico = checkBoxReListen.Checked;
+			mClienteServidorUdp1.ReListenAutomatico = checkBoxReListen.Checked;
 		}
 
 
@@ -341,8 +345,8 @@ namespace Servidor_TCP
 		{
 			mBytesRecibidosCount += e.DatosRecibidos.Length;
 			EscribirLabelBytesCount("recibido: " + mBytesRecibidosCount);
-			clienteServidorTCP_UDP1.ClearBufferEntrada();
-			//EscribirTextoDatosRecibidos(clienteServidorTCP_UDP1.GetDataString() + "\r\n");
+			EscribirTextoDatosRecibidos(mClienteServidorUdp1.GetDataString() + "\r\n");
+			mClienteServidorUdp1.ClearBufferEntrada();
 		}
 
 		private void clienteServidorTCP_UDP1_ComandoRecibido(object sender, PeerToPeerTcpUdp.SockEventArgs e)
@@ -356,11 +360,10 @@ namespace Servidor_TCP
 				F.Write(e.ComandoRecibido.DatosBytes, 0, e.ComandoRecibido.DatosBytes.Length);
 				F.Close();
 			}
-
-			
-
-
-			//EscribirTextoComando(e.ComandoRecibido.CommandoString + " -> " + e.ComandoRecibido.DatosString + "\r\n");
+			else
+			{
+				EscribirTextoComando(e.ComandoRecibido.CommandoString + " -> " + e.ComandoRecibido.DatosString + "\r\n");
+			}
 		}
 
 		private void clienteServidorTCP_UDP1_EscuchaIniciada(object sender, PeerToPeerTcpUdp.SockEventArgs e)
@@ -380,7 +383,7 @@ namespace Servidor_TCP
 
 		private void timerStatus_Tick(object sender, EventArgs e)
 		{
-			textBoxStatusControl.Text = clienteServidorTCP_UDP1.Status();
+			textBoxStatusControl.Text = mClienteServidorUdp1.Status();
 		}
 
 
@@ -398,7 +401,7 @@ namespace Servidor_TCP
 			{
 				mData[mI] = (byte) mI;
 			}
-			clienteServidorTCP_UDP1.Send(mData);
+			mClienteServidorUdp1.Send(mData);
 		}
 
 		private void buttonEnviarArchivo_Click(object sender, EventArgs e)
@@ -415,13 +418,13 @@ namespace Servidor_TCP
 				{
 					if (mBytesLeidos == 10000)
 					{
-						clienteServidorTCP_UDP1.SendComando("Archivo.zip", Data);
+						mClienteServidorUdp1.SendComando("Archivo.zip", Data);
 					}
 					else
 					{
 						byte[] mD = Data;
 						Array.Resize(ref mD, mBytesLeidos);
-						clienteServidorTCP_UDP1.SendComando("Archivo.zip", mD);
+						mClienteServidorUdp1.SendComando("Archivo.zip", mD);
 					}
 					mBytesLeidos = S.Read(Data, offset, 10000);
 				} while (mBytesLeidos > 0);
@@ -438,7 +441,25 @@ namespace Servidor_TCP
 
 		}
 
+		private void radioButtonTCP_CheckedChanged(object sender, EventArgs e)
+		{
+			//if (radioButtonTCP.Checked == true)
+			//{
+			//	mClienteServidorUdp1.TipoSock = PeerToPeerTcpUdp.PeerToPeerUdp.eTipoSock.TCP;
+			//}
+		}
 
+		private void radioButtonUDP_CheckedChanged(object sender, EventArgs e)
+		{
+			if (radioButtonUDP.Checked == true)
+			{
+				mClienteServidorUdp1.EndPointRemoto = new IPEndPoint(IPAddress.Parse(textBox1.Text), int.Parse(textBoxPuertoCliente.Text));
+				//mClienteServidorUdp1.TipoSock = PeerToPeerTcpUdp.PeerToPeerUdp.eTipoSock.UDP;
+			}
+		}
+
+		
+	
 
 
 	}

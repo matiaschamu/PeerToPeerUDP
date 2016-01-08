@@ -9,7 +9,7 @@ namespace ClienteServidorTCP_UDPTests
 		[TestMethod]
 		public void TestProcesarComandos()
 		{
-			PrivateObject mObj = new PrivateObject(typeof( PeerToPeerTcpUdp.PeerToPeerTcpUdp));
+			PrivateObject mObj = new PrivateObject(typeof( PeerToPeerTcpUdp.PeerToPeerUdp));
 			byte[] mRecibidos =
 			{
 				0x48, 0x6F, 0x6C, 0x01, 0x61, 0x20, 0x4D, 0x61, 0x74, 0x6F, 0x3F, 0x20, 0x54, 0x6F, 0x64, 0x6F, 0x20, 0x62, 0x69,
@@ -43,7 +43,7 @@ namespace ClienteServidorTCP_UDPTests
 		[TestMethod]
 		public void TestTamañoBufferSinContarCaracteresEspeciales()
 		{
-			PrivateObject mObj = new PrivateObject(typeof( PeerToPeerTcpUdp.PeerToPeerTcpUdp));
+			PrivateObject mObj = new PrivateObject(typeof( PeerToPeerTcpUdp.PeerToPeerUdp));
 			byte[] mBuffer1 =
 			{
 				0x48, 0x6F, 0x6C, 0x01, 0x61, 0x20, 0x4D, 0x61, 0x74, 0x6F, 0x3F, 0x20, 0x54, 0x6F, 0x64, 0x6F, 0x20, 0x62, 0x69, 0x65, 

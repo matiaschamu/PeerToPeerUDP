@@ -80,7 +80,10 @@ namespace Servidor_TCP
 			this.buttonunSet = new System.Windows.Forms.Button();
 			this.timerStatus = new System.Windows.Forms.Timer(this.components);
 			this.labelInformacion = new System.Windows.Forms.Label();
-			this.clienteServidorTCP_UDP1 = new PeerToPeerTcpUdp.PeerToPeerTcpUdp(this.components);
+			this.groupBox2 = new System.Windows.Forms.GroupBox();
+			this.groupBox3 = new System.Windows.Forms.GroupBox();
+			this.groupBox4 = new System.Windows.Forms.GroupBox();
+			this.mClienteServidorUdp1 = new PeerToPeerTcpUdp.PeerToPeerUdp(this.components);
 			this.groupBoxCliente.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.panel4.SuspendLayout();
@@ -91,13 +94,15 @@ namespace Servidor_TCP
 			this.tableLayoutPanel1.SuspendLayout();
 			this.panel2.SuspendLayout();
 			this.panel1.SuspendLayout();
+			this.groupBox2.SuspendLayout();
+			this.groupBox3.SuspendLayout();
+			this.groupBox4.SuspendLayout();
 			this.SuspendLayout();
 			// 
 			// labelPuertoServidor
 			// 
-			this.labelPuertoServidor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.labelPuertoServidor.AutoSize = true;
-			this.labelPuertoServidor.Location = new System.Drawing.Point(260, 383);
+			this.labelPuertoServidor.Location = new System.Drawing.Point(6, 27);
 			this.labelPuertoServidor.Name = "labelPuertoServidor";
 			this.labelPuertoServidor.Size = new System.Drawing.Size(38, 13);
 			this.labelPuertoServidor.TabIndex = 0;
@@ -113,13 +118,12 @@ namespace Servidor_TCP
 			this.textBoxDatosRecibidos.Multiline = true;
 			this.textBoxDatosRecibidos.Name = "textBoxDatosRecibidos";
 			this.textBoxDatosRecibidos.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBoxDatosRecibidos.Size = new System.Drawing.Size(283, 68);
+			this.textBoxDatosRecibidos.Size = new System.Drawing.Size(283, 52);
 			this.textBoxDatosRecibidos.TabIndex = 1;
 			// 
 			// textBoxPuertoServidor
 			// 
-			this.textBoxPuertoServidor.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBoxPuertoServidor.Location = new System.Drawing.Point(253, 399);
+			this.textBoxPuertoServidor.Location = new System.Drawing.Point(56, 24);
 			this.textBoxPuertoServidor.Name = "textBoxPuertoServidor";
 			this.textBoxPuertoServidor.Size = new System.Drawing.Size(50, 20);
 			this.textBoxPuertoServidor.TabIndex = 3;
@@ -128,8 +132,7 @@ namespace Servidor_TCP
 			// 
 			// buttonSetPuerto
 			// 
-			this.buttonSetPuerto.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonSetPuerto.Location = new System.Drawing.Point(309, 399);
+			this.buttonSetPuerto.Location = new System.Drawing.Point(9, 50);
 			this.buttonSetPuerto.Name = "buttonSetPuerto";
 			this.buttonSetPuerto.Size = new System.Drawing.Size(41, 20);
 			this.buttonSetPuerto.TabIndex = 4;
@@ -140,7 +143,7 @@ namespace Servidor_TCP
 			// labelBytesCount
 			// 
 			this.labelBytesCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.labelBytesCount.Location = new System.Drawing.Point(6, 112);
+			this.labelBytesCount.Location = new System.Drawing.Point(6, 96);
 			this.labelBytesCount.Name = "labelBytesCount";
 			this.labelBytesCount.Size = new System.Drawing.Size(259, 20);
 			this.labelBytesCount.TabIndex = 5;
@@ -173,8 +176,7 @@ namespace Servidor_TCP
 			// 
 			// textBoxSegundosCliente
 			// 
-			this.textBoxSegundosCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBoxSegundosCliente.Location = new System.Drawing.Point(456, 538);
+			this.textBoxSegundosCliente.Location = new System.Drawing.Point(6, 85);
 			this.textBoxSegundosCliente.Name = "textBoxSegundosCliente";
 			this.textBoxSegundosCliente.Size = new System.Drawing.Size(100, 20);
 			this.textBoxSegundosCliente.TabIndex = 6;
@@ -183,9 +185,8 @@ namespace Servidor_TCP
 			// 
 			// labelSegCliente
 			// 
-			this.labelSegCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.labelSegCliente.AutoSize = true;
-			this.labelSegCliente.Location = new System.Drawing.Point(453, 522);
+			this.labelSegCliente.Location = new System.Drawing.Point(6, 69);
 			this.labelSegCliente.Name = "labelSegCliente";
 			this.labelSegCliente.Size = new System.Drawing.Size(97, 13);
 			this.labelSegCliente.TabIndex = 7;
@@ -195,30 +196,31 @@ namespace Servidor_TCP
 			// 
 			this.radioButtonTCP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.radioButtonTCP.AutoSize = true;
-			this.radioButtonTCP.Checked = true;
 			this.radioButtonTCP.Location = new System.Drawing.Point(502, 12);
 			this.radioButtonTCP.Name = "radioButtonTCP";
 			this.radioButtonTCP.Size = new System.Drawing.Size(46, 17);
 			this.radioButtonTCP.TabIndex = 8;
-			this.radioButtonTCP.TabStop = true;
 			this.radioButtonTCP.Text = "TCP";
 			this.radioButtonTCP.UseVisualStyleBackColor = true;
+			this.radioButtonTCP.CheckedChanged += new System.EventHandler(this.radioButtonTCP_CheckedChanged);
 			// 
 			// radioButtonUDP
 			// 
 			this.radioButtonUDP.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
 			this.radioButtonUDP.AutoSize = true;
+			this.radioButtonUDP.Checked = true;
 			this.radioButtonUDP.Location = new System.Drawing.Point(554, 12);
 			this.radioButtonUDP.Name = "radioButtonUDP";
 			this.radioButtonUDP.Size = new System.Drawing.Size(48, 17);
 			this.radioButtonUDP.TabIndex = 9;
+			this.radioButtonUDP.TabStop = true;
 			this.radioButtonUDP.Text = "UDP";
 			this.radioButtonUDP.UseVisualStyleBackColor = true;
+			this.radioButtonUDP.CheckedChanged += new System.EventHandler(this.radioButtonUDP_CheckedChanged);
 			// 
 			// textBoxPuertoCliente
 			// 
-			this.textBoxPuertoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBoxPuertoCliente.Location = new System.Drawing.Point(423, 476);
+			this.textBoxPuertoCliente.Location = new System.Drawing.Point(176, 61);
 			this.textBoxPuertoCliente.Name = "textBoxPuertoCliente";
 			this.textBoxPuertoCliente.Size = new System.Drawing.Size(50, 20);
 			this.textBoxPuertoCliente.TabIndex = 11;
@@ -227,9 +229,8 @@ namespace Servidor_TCP
 			// 
 			// labelPuertoCliente
 			// 
-			this.labelPuertoCliente.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.labelPuertoCliente.AutoSize = true;
-			this.labelPuertoCliente.Location = new System.Drawing.Point(430, 460);
+			this.labelPuertoCliente.Location = new System.Drawing.Point(183, 45);
 			this.labelPuertoCliente.Name = "labelPuertoCliente";
 			this.labelPuertoCliente.Size = new System.Drawing.Size(38, 13);
 			this.labelPuertoCliente.TabIndex = 10;
@@ -240,7 +241,7 @@ namespace Servidor_TCP
 			this.groupBoxCliente.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
 			this.groupBoxCliente.Controls.Add(this.tableLayoutPanel2);
-			this.groupBoxCliente.Location = new System.Drawing.Point(12, 176);
+			this.groupBoxCliente.Location = new System.Drawing.Point(12, 160);
 			this.groupBoxCliente.Name = "groupBoxCliente";
 			this.groupBoxCliente.Size = new System.Drawing.Size(590, 172);
 			this.groupBoxCliente.TabIndex = 14;
@@ -388,8 +389,7 @@ namespace Servidor_TCP
 			// 
 			// buttonEnviarArchivoo
 			// 
-			this.buttonEnviarArchivoo.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonEnviarArchivoo.Location = new System.Drawing.Point(556, 522);
+			this.buttonEnviarArchivoo.Location = new System.Drawing.Point(36, 111);
 			this.buttonEnviarArchivoo.Name = "buttonEnviarArchivoo";
 			this.buttonEnviarArchivoo.Size = new System.Drawing.Size(45, 36);
 			this.buttonEnviarArchivoo.TabIndex = 25;
@@ -399,8 +399,7 @@ namespace Servidor_TCP
 			// 
 			// textBoxComando
 			// 
-			this.textBoxComando.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBoxComando.Location = new System.Drawing.Point(515, 500);
+			this.textBoxComando.Location = new System.Drawing.Point(4, 43);
 			this.textBoxComando.Name = "textBoxComando";
 			this.textBoxComando.Size = new System.Drawing.Size(72, 20);
 			this.textBoxComando.TabIndex = 24;
@@ -409,10 +408,9 @@ namespace Servidor_TCP
 			// 
 			// buttonEnviarRafaga
 			// 
-			this.buttonEnviarRafaga.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonEnviarRafaga.Location = new System.Drawing.Point(512, 471);
+			this.buttonEnviarRafaga.Location = new System.Drawing.Point(4, 18);
 			this.buttonEnviarRafaga.Name = "buttonEnviarRafaga";
-			this.buttonEnviarRafaga.Size = new System.Drawing.Size(75, 23);
+			this.buttonEnviarRafaga.Size = new System.Drawing.Size(72, 23);
 			this.buttonEnviarRafaga.TabIndex = 22;
 			this.buttonEnviarRafaga.Text = "EnviarRafaga";
 			this.buttonEnviarRafaga.UseVisualStyleBackColor = true;
@@ -421,9 +419,9 @@ namespace Servidor_TCP
 			// buttonSetInterval
 			// 
 			this.buttonSetInterval.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonSetInterval.Location = new System.Drawing.Point(381, 501);
+			this.buttonSetInterval.Location = new System.Drawing.Point(533, 417);
 			this.buttonSetInterval.Name = "buttonSetInterval";
-			this.buttonSetInterval.Size = new System.Drawing.Size(34, 23);
+			this.buttonSetInterval.Size = new System.Drawing.Size(34, 20);
 			this.buttonSetInterval.TabIndex = 21;
 			this.buttonSetInterval.Text = "Set";
 			this.buttonSetInterval.UseVisualStyleBackColor = true;
@@ -432,9 +430,9 @@ namespace Servidor_TCP
 			// textBoxIntervalTest
 			// 
 			this.textBoxIntervalTest.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBoxIntervalTest.Location = new System.Drawing.Point(325, 502);
+			this.textBoxIntervalTest.Location = new System.Drawing.Point(490, 417);
 			this.textBoxIntervalTest.Name = "textBoxIntervalTest";
-			this.textBoxIntervalTest.Size = new System.Drawing.Size(50, 20);
+			this.textBoxIntervalTest.Size = new System.Drawing.Size(41, 20);
 			this.textBoxIntervalTest.TabIndex = 20;
 			this.textBoxIntervalTest.Text = "2000";
 			this.textBoxIntervalTest.TextAlign = System.Windows.Forms.HorizontalAlignment.Center;
@@ -443,11 +441,11 @@ namespace Servidor_TCP
 			// 
 			this.checkBoxReListen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.checkBoxReListen.AutoSize = true;
-			this.checkBoxReListen.Location = new System.Drawing.Point(253, 540);
+			this.checkBoxReListen.Location = new System.Drawing.Point(418, 363);
 			this.checkBoxReListen.Name = "checkBoxReListen";
-			this.checkBoxReListen.Size = new System.Drawing.Size(68, 17);
+			this.checkBoxReListen.Size = new System.Drawing.Size(92, 17);
 			this.checkBoxReListen.TabIndex = 19;
-			this.checkBoxReListen.Text = "ReListen";
+			this.checkBoxReListen.Text = "ReListen TCP";
 			this.checkBoxReListen.UseVisualStyleBackColor = true;
 			this.checkBoxReListen.CheckedChanged += new System.EventHandler(this.checkBoxReListen_CheckedChanged);
 			// 
@@ -455,11 +453,11 @@ namespace Servidor_TCP
 			// 
 			this.checkBoxReConnect.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.checkBoxReConnect.AutoSize = true;
-			this.checkBoxReConnect.Location = new System.Drawing.Point(253, 521);
+			this.checkBoxReConnect.Location = new System.Drawing.Point(418, 391);
 			this.checkBoxReConnect.Name = "checkBoxReConnect";
-			this.checkBoxReConnect.Size = new System.Drawing.Size(74, 17);
+			this.checkBoxReConnect.Size = new System.Drawing.Size(98, 17);
 			this.checkBoxReConnect.TabIndex = 18;
-			this.checkBoxReConnect.Text = "ReConect";
+			this.checkBoxReConnect.Text = "ReConect TCP";
 			this.checkBoxReConnect.UseVisualStyleBackColor = true;
 			this.checkBoxReConnect.CheckedChanged += new System.EventHandler(this.checkBoxReConnect_CheckedChanged);
 			// 
@@ -469,7 +467,7 @@ namespace Servidor_TCP
 			this.checkBoxTestConnect.AutoSize = true;
 			this.checkBoxTestConnect.Checked = true;
 			this.checkBoxTestConnect.CheckState = System.Windows.Forms.CheckState.Checked;
-			this.checkBoxTestConnect.Location = new System.Drawing.Point(253, 502);
+			this.checkBoxTestConnect.Location = new System.Drawing.Point(418, 419);
 			this.checkBoxTestConnect.Name = "checkBoxTestConnect";
 			this.checkBoxTestConnect.Size = new System.Drawing.Size(66, 17);
 			this.checkBoxTestConnect.TabIndex = 17;
@@ -479,8 +477,7 @@ namespace Servidor_TCP
 			// 
 			// buttonDesConectar
 			// 
-			this.buttonDesConectar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonDesConectar.Location = new System.Drawing.Point(323, 434);
+			this.buttonDesConectar.Location = new System.Drawing.Point(76, 19);
 			this.buttonDesConectar.Name = "buttonDesConectar";
 			this.buttonDesConectar.Size = new System.Drawing.Size(83, 23);
 			this.buttonDesConectar.TabIndex = 16;
@@ -491,17 +488,16 @@ namespace Servidor_TCP
 			// textBoxStatusControl
 			// 
 			this.textBoxStatusControl.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBoxStatusControl.Location = new System.Drawing.Point(12, 354);
+			this.textBoxStatusControl.Location = new System.Drawing.Point(12, 338);
 			this.textBoxStatusControl.Multiline = true;
 			this.textBoxStatusControl.Name = "textBoxStatusControl";
 			this.textBoxStatusControl.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBoxStatusControl.Size = new System.Drawing.Size(234, 203);
+			this.textBoxStatusControl.Size = new System.Drawing.Size(234, 260);
 			this.textBoxStatusControl.TabIndex = 15;
 			// 
 			// buttonConectar
 			// 
-			this.buttonConectar.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonConectar.Location = new System.Drawing.Point(253, 434);
+			this.buttonConectar.Location = new System.Drawing.Point(6, 19);
 			this.buttonConectar.Name = "buttonConectar";
 			this.buttonConectar.Size = new System.Drawing.Size(64, 23);
 			this.buttonConectar.TabIndex = 14;
@@ -511,8 +507,7 @@ namespace Servidor_TCP
 			// 
 			// textBox1
 			// 
-			this.textBox1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.textBox1.Location = new System.Drawing.Point(253, 476);
+			this.textBox1.Location = new System.Drawing.Point(6, 61);
 			this.textBox1.Name = "textBox1";
 			this.textBox1.Size = new System.Drawing.Size(164, 20);
 			this.textBox1.TabIndex = 13;
@@ -521,9 +516,8 @@ namespace Servidor_TCP
 			// 
 			// label1
 			// 
-			this.label1.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.label1.AutoSize = true;
-			this.label1.Location = new System.Drawing.Point(295, 460);
+			this.label1.Location = new System.Drawing.Point(48, 45);
 			this.label1.Name = "label1";
 			this.label1.Size = new System.Drawing.Size(74, 13);
 			this.label1.TabIndex = 12;
@@ -539,7 +533,7 @@ namespace Servidor_TCP
 			this.groupBoxServidor.Controls.Add(this.labelBytesCount);
 			this.groupBoxServidor.Location = new System.Drawing.Point(12, 35);
 			this.groupBoxServidor.Name = "groupBoxServidor";
-			this.groupBoxServidor.Size = new System.Drawing.Size(590, 135);
+			this.groupBoxServidor.Size = new System.Drawing.Size(590, 119);
 			this.groupBoxServidor.TabIndex = 15;
 			this.groupBoxServidor.TabStop = false;
 			this.groupBoxServidor.Text = "Recibido";
@@ -547,7 +541,7 @@ namespace Servidor_TCP
 			// labelComandosCount
 			// 
 			this.labelComandosCount.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.labelComandosCount.Location = new System.Drawing.Point(301, 112);
+			this.labelComandosCount.Location = new System.Drawing.Point(301, 96);
 			this.labelComandosCount.Name = "labelComandosCount";
 			this.labelComandosCount.Size = new System.Drawing.Size(259, 20);
 			this.labelComandosCount.TabIndex = 7;
@@ -569,7 +563,7 @@ namespace Servidor_TCP
 			this.tableLayoutPanel1.RowCount = 1;
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
 			this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
-			this.tableLayoutPanel1.Size = new System.Drawing.Size(578, 90);
+			this.tableLayoutPanel1.Size = new System.Drawing.Size(578, 74);
 			this.tableLayoutPanel1.TabIndex = 6;
 			// 
 			// panel2
@@ -581,7 +575,7 @@ namespace Servidor_TCP
 			this.panel2.Controls.Add(this.textBoxComandoRecibido);
 			this.panel2.Location = new System.Drawing.Point(292, 3);
 			this.panel2.Name = "panel2";
-			this.panel2.Size = new System.Drawing.Size(283, 84);
+			this.panel2.Size = new System.Drawing.Size(283, 68);
 			this.panel2.TabIndex = 8;
 			// 
 			// label3
@@ -603,7 +597,7 @@ namespace Servidor_TCP
 			this.textBoxComandoRecibido.Multiline = true;
 			this.textBoxComandoRecibido.Name = "textBoxComandoRecibido";
 			this.textBoxComandoRecibido.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-			this.textBoxComandoRecibido.Size = new System.Drawing.Size(283, 68);
+			this.textBoxComandoRecibido.Size = new System.Drawing.Size(283, 52);
 			this.textBoxComandoRecibido.TabIndex = 1;
 			// 
 			// panel1
@@ -615,7 +609,7 @@ namespace Servidor_TCP
 			this.panel1.Controls.Add(this.textBoxDatosRecibidos);
 			this.panel1.Location = new System.Drawing.Point(3, 3);
 			this.panel1.Name = "panel1";
-			this.panel1.Size = new System.Drawing.Size(283, 84);
+			this.panel1.Size = new System.Drawing.Size(283, 68);
 			this.panel1.TabIndex = 7;
 			// 
 			// label2
@@ -629,8 +623,7 @@ namespace Servidor_TCP
 			// 
 			// buttonunSet
 			// 
-			this.buttonunSet.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
-			this.buttonunSet.Location = new System.Drawing.Point(356, 399);
+			this.buttonunSet.Location = new System.Drawing.Point(56, 50);
 			this.buttonunSet.Name = "buttonunSet";
 			this.buttonunSet.Size = new System.Drawing.Size(50, 20);
 			this.buttonunSet.TabIndex = 6;
@@ -648,60 +641,93 @@ namespace Servidor_TCP
 			// 
 			this.labelInformacion.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
 			this.labelInformacion.AutoSize = true;
-			this.labelInformacion.Location = new System.Drawing.Point(260, 357);
+			this.labelInformacion.Location = new System.Drawing.Point(260, 338);
 			this.labelInformacion.Name = "labelInformacion";
 			this.labelInformacion.Size = new System.Drawing.Size(44, 13);
 			this.labelInformacion.TabIndex = 26;
 			this.labelInformacion.Text = "Cerrado";
 			// 
-			// clienteServidorTCP_UDP1
+			// groupBox2
 			// 
-			this.clienteServidorTCP_UDP1.EndPointRemoto = null;
-			this.clienteServidorTCP_UDP1.PuertoEscucha = ((ushort)(80));
-			this.clienteServidorTCP_UDP1.ReConexionAutomatica = false;
-			this.clienteServidorTCP_UDP1.ReListenAutomatico = false;
-			this.clienteServidorTCP_UDP1.TestearConexion = true;
-			this.clienteServidorTCP_UDP1.TiempomSegTestConexion = 2000;
-			this.clienteServidorTCP_UDP1.ConexionEstablecida += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionEstablecida);
-			this.clienteServidorTCP_UDP1.ConexionCancelada += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionCancelada);
-			this.clienteServidorTCP_UDP1.EscuchaIniciada += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciada);
-			this.clienteServidorTCP_UDP1.EscuchaIniciando += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciando);
-			this.clienteServidorTCP_UDP1.EscuchaCancelada += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaCancelada);
-			this.clienteServidorTCP_UDP1.DatosRecibidos += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_DatosRecibidos);
-			this.clienteServidorTCP_UDP1.ComandoRecibido += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ComandoRecibido);
-			this.clienteServidorTCP_UDP1.ConexionPerdida += new PeerToPeerTcpUdp.PeerToPeerTcpUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionPerdida);
+			this.groupBox2.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox2.Controls.Add(this.labelPuertoServidor);
+			this.groupBox2.Controls.Add(this.buttonSetPuerto);
+			this.groupBox2.Controls.Add(this.textBoxPuertoServidor);
+			this.groupBox2.Controls.Add(this.buttonunSet);
+			this.groupBox2.Location = new System.Drawing.Point(253, 357);
+			this.groupBox2.Name = "groupBox2";
+			this.groupBox2.Size = new System.Drawing.Size(159, 79);
+			this.groupBox2.TabIndex = 28;
+			this.groupBox2.TabStop = false;
+			this.groupBox2.Text = "Escucha TCP o UDP";
+			// 
+			// groupBox3
+			// 
+			this.groupBox3.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox3.Controls.Add(this.buttonConectar);
+			this.groupBox3.Controls.Add(this.label1);
+			this.groupBox3.Controls.Add(this.textBox1);
+			this.groupBox3.Controls.Add(this.textBoxPuertoCliente);
+			this.groupBox3.Controls.Add(this.buttonDesConectar);
+			this.groupBox3.Controls.Add(this.labelPuertoCliente);
+			this.groupBox3.Location = new System.Drawing.Point(253, 442);
+			this.groupBox3.Name = "groupBox3";
+			this.groupBox3.Size = new System.Drawing.Size(233, 86);
+			this.groupBox3.TabIndex = 30;
+			this.groupBox3.TabStop = false;
+			this.groupBox3.Text = "Conexion TCP";
+			// 
+			// groupBox4
+			// 
+			this.groupBox4.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left)));
+			this.groupBox4.Controls.Add(this.buttonEnviarRafaga);
+			this.groupBox4.Controls.Add(this.textBoxSegundosCliente);
+			this.groupBox4.Controls.Add(this.labelSegCliente);
+			this.groupBox4.Controls.Add(this.textBoxComando);
+			this.groupBox4.Controls.Add(this.buttonEnviarArchivoo);
+			this.groupBox4.Location = new System.Drawing.Point(491, 442);
+			this.groupBox4.Name = "groupBox4";
+			this.groupBox4.Size = new System.Drawing.Size(111, 156);
+			this.groupBox4.TabIndex = 31;
+			this.groupBox4.TabStop = false;
+			this.groupBox4.Text = "Envio Ciclico";
+			// 
+			// mClienteServidorUdp1
+			// 
+			this.mClienteServidorUdp1.PuertoEscucha = ((ushort)(80));
+			this.mClienteServidorUdp1.ReConexionAutomatica = false;
+			this.mClienteServidorUdp1.ReListenAutomatico = false;
+			this.mClienteServidorUdp1.TestearConexion = true;
+			this.mClienteServidorUdp1.TiempomSegTestConexion = 2000;
+			//this.mClienteServidorUdp1.TipoSock = PeerToPeerTcpUdp.PeerToPeerUdp.eTipoSock.TCP;
+			this.mClienteServidorUdp1.ConexionEstablecida += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionEstablecida);
+			this.mClienteServidorUdp1.ConexionCancelada += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionCancelada);
+			this.mClienteServidorUdp1.EscuchaIniciada += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciada);
+			this.mClienteServidorUdp1.EscuchaIniciando += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciando);
+			this.mClienteServidorUdp1.EscuchaCancelada += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaCancelada);
+			this.mClienteServidorUdp1.DatosRecibidos += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_DatosRecibidos);
+			this.mClienteServidorUdp1.ComandoRecibido += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ComandoRecibido);
+			this.mClienteServidorUdp1.ConexionPerdida += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionPerdida);
 			// 
 			// Servidor
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-			this.ClientSize = new System.Drawing.Size(614, 569);
+			this.ClientSize = new System.Drawing.Size(614, 605);
+			this.Controls.Add(this.groupBox4);
+			this.Controls.Add(this.groupBox3);
+			this.Controls.Add(this.groupBox2);
 			this.Controls.Add(this.labelInformacion);
-			this.Controls.Add(this.buttonEnviarArchivoo);
-			this.Controls.Add(this.buttonunSet);
-			this.Controls.Add(this.textBoxComando);
-			this.Controls.Add(this.labelPuertoServidor);
 			this.Controls.Add(this.groupBoxServidor);
-			this.Controls.Add(this.buttonEnviarRafaga);
 			this.Controls.Add(this.groupBoxCliente);
 			this.Controls.Add(this.buttonSetInterval);
 			this.Controls.Add(this.textBoxIntervalTest);
-			this.Controls.Add(this.textBoxPuertoServidor);
-			this.Controls.Add(this.labelPuertoCliente);
 			this.Controls.Add(this.radioButtonUDP);
 			this.Controls.Add(this.checkBoxReListen);
-			this.Controls.Add(this.buttonSetPuerto);
 			this.Controls.Add(this.checkBoxReConnect);
 			this.Controls.Add(this.radioButtonTCP);
 			this.Controls.Add(this.checkBoxTestConnect);
 			this.Controls.Add(this.textBoxStatusControl);
-			this.Controls.Add(this.buttonDesConectar);
-			this.Controls.Add(this.labelSegCliente);
-			this.Controls.Add(this.buttonConectar);
-			this.Controls.Add(this.textBoxPuertoCliente);
-			this.Controls.Add(this.textBox1);
-			this.Controls.Add(this.textBoxSegundosCliente);
-			this.Controls.Add(this.label1);
 			this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
 			this.Name = "Servidor";
 			this.Text = "Cliente y Servidor TCP y UDP";
@@ -720,6 +746,12 @@ namespace Servidor_TCP
 			this.panel2.PerformLayout();
 			this.panel1.ResumeLayout(false);
 			this.panel1.PerformLayout();
+			this.groupBox2.ResumeLayout(false);
+			this.groupBox2.PerformLayout();
+			this.groupBox3.ResumeLayout(false);
+			this.groupBox3.PerformLayout();
+			this.groupBox4.ResumeLayout(false);
+			this.groupBox4.PerformLayout();
 			this.ResumeLayout(false);
 			this.PerformLayout();
 
@@ -744,7 +776,7 @@ namespace Servidor_TCP
 		private System.Windows.Forms.GroupBox groupBoxServidor;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;
-		private PeerToPeerTcpUdp.PeerToPeerTcpUdp clienteServidorTCP_UDP1;
+		private PeerToPeerTcpUdp.PeerToPeerUdp mClienteServidorUdp1;
 		private System.Windows.Forms.Button buttonConectar;
 		private System.Windows.Forms.Button buttonunSet;
 		private System.Windows.Forms.Timer timerStatus;
@@ -777,6 +809,9 @@ namespace Servidor_TCP
 		private System.Windows.Forms.Label label5;
 		private System.Windows.Forms.Label labelComandosCount;
 		private System.Windows.Forms.Label labelInformacion;
+		private System.Windows.Forms.GroupBox groupBox2;
+		private System.Windows.Forms.GroupBox groupBox3;
+		private System.Windows.Forms.GroupBox groupBox4;
     }
 }
 

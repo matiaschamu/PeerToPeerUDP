@@ -1,6 +1,6 @@
 ﻿namespace PeerToPeerTcpUdp
 {
-	partial class PeerToPeerTcpUdp
+	partial class PeerToPeerUdp
 	{
 		/// <summary>
 		/// Variable del diseñador requerida.
@@ -16,9 +16,8 @@
 			if (disposing && (components != null))
 			{
 				components.Dispose();
-				//mSockTcp.Close();
-				mSempBufferEntrada.Dispose();
-				mSempBufferSalida.Dispose();
+				//mSempBufferEntrada.Dispose();
+				//mSempBufferSalida.Dispose();
 			}
 			base.Dispose(disposing);
 		}
