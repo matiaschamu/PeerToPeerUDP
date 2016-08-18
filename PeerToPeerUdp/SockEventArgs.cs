@@ -29,7 +29,10 @@ namespace PeerToPeerTcpUdp
 
 		public byte[] DatosRecibidos
 		{
-			get { return mDatosRecibidos; }
+			get
+			{
+				return mDatosRecibidos;
+			}
 		}
 
 		public string DatosRecibidosString

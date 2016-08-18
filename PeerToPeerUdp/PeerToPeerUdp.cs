@@ -117,7 +117,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public eEstadosListen EstadoListen
 		{
-			get { return mEstadoListen; }
+			get
+			{
+				return mEstadoListen;
+			}
 		}
 
 		/// <summary>
@@ -125,7 +128,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public bool Escuchando
 		{
-			get { return mEscuchando; }
+			get
+			{
+				return mEscuchando;
+			}
 		}
 
 		/// <summary>
@@ -133,8 +139,14 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public ushort PuertoEscucha
 		{
-			get { return mPuertoEscucha; }
-			set { mPuertoEscucha = value; }
+			get
+			{
+				return mPuertoEscucha;
+			}
+			set
+			{
+				mPuertoEscucha = value;
+			}
 		}
 
 		/// <summary>
@@ -142,7 +154,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public long CantidadDatosBufferEnvio
 		{
-			get { return mBufferSalida.Count; }
+			get
+			{
+				return mBufferSalida.Count;
+			}
 		}
 
 		/// <summary>
@@ -150,7 +165,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public long CantidadDatosBufferRecepcion
 		{
-			get { return mBufferEntrada.Count; }
+			get
+			{
+				return mBufferEntrada.Count;
+			}
 		}
 
 		/// <summary>
@@ -158,7 +176,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public System.Net.IPEndPoint EndPointRemoto
 		{
-			get { return mIpRemota; }
+			get
+			{
+				return mIpRemota;
+			}
 			set
 			{
 				if (value != null)
@@ -178,8 +199,14 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public bool ReListenAutomatico
 		{
-			get { return mReListenAutomatico; }
-			set { mReListenAutomatico = value; }
+			get
+			{
+				return mReListenAutomatico;
+			}
+			set
+			{
+				mReListenAutomatico = value;
+			}
 		}
 
 		/// <summary>
@@ -187,8 +214,14 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public bool TestearConexion
 		{
-			get { return mTestearConexion; }
-			set { mTestearConexion = value; }
+			get
+			{
+				return mTestearConexion;
+			}
+			set
+			{
+				mTestearConexion = value;
+			}
 		}
 
 		/// <summary>
@@ -196,8 +229,14 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public bool ReConexionAutomatica
 		{
-			get { return mReConexionAutomatica; }
-			set { mReConexionAutomatica = value; }
+			get
+			{
+				return mReConexionAutomatica;
+			}
+			set
+			{
+				mReConexionAutomatica = value;
+			}
 		}
 
 		/// <summary>
@@ -205,7 +244,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public long CantBytesTrasmitidos
 		{
-			get { return mCantBytesTrasmitidos; }
+			get
+			{
+				return mCantBytesTrasmitidos;
+			}
 		}
 
 		/// <summary>
@@ -213,7 +255,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public long CantBytesRecibidos
 		{
-			get { return mCantBytesRecibidos; }
+			get
+			{
+				return mCantBytesRecibidos;
+			}
 		}
 
 		/// <summary>
@@ -221,7 +266,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public int TiempomSegTestConexion
 		{
-			get { return mTiempomSegTestConexion; }
+			get
+			{
+				return mTiempomSegTestConexion;
+			}
 			set
 			{
 				mTiempomSegTestConexion = value;
@@ -244,7 +292,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public float VelocidadDeSubida
 		{
-			get { return mVelocidadDeSubida; }
+			get
+			{
+				return mVelocidadDeSubida;
+			}
 		}
 
 		/// <summary>
@@ -253,7 +304,10 @@ namespace PeerToPeerTcpUdp
 		/// </summary>
 		public float VelocidadDeBajada
 		{
-			get { return mVelocidadDeBajada; }
+			get
+			{
+				return mVelocidadDeBajada;
+			}
 		}
 
 		#endregion "Propiedades"
@@ -314,12 +368,12 @@ namespace PeerToPeerTcpUdp
 			int mBytesTransmitidos = 0;
 			for (int i = 1; i < mTamañoUltimasTransmisiones.Count; i++)
 			{
-				mBytesTransmitidos = mBytesTransmitidos + ((int) (mTamañoUltimasTransmisiones[i].Bytes - mTamañoUltimasTransmisiones[i - 1].Bytes));
+				mBytesTransmitidos = mBytesTransmitidos + ((int)(mTamañoUltimasTransmisiones[i].Bytes - mTamañoUltimasTransmisiones[i - 1].Bytes));
 			}
 			if (mBytesTransmitidos > 0)
 			{
 				TimeSpan mTiempoUsado = new TimeSpan(mTamañoUltimasTransmisiones[mTamañoUltimasTransmisiones.Count - 1].TimeStamp.Ticks - mTamañoUltimasTransmisiones[0].TimeStamp.Ticks);
-				mVelocidadDeSubida = ((Single) (((mBytesTransmitidos)*8)/(mTiempoUsado.TotalMilliseconds/1000)));
+				mVelocidadDeSubida = ((Single)(((mBytesTransmitidos) * 8) / (mTiempoUsado.TotalMilliseconds / 1000)));
 			}
 			else
 			{
@@ -329,12 +383,12 @@ namespace PeerToPeerTcpUdp
 			int mBytesRecibidos = 0;
 			for (int i = 1; i < mTamañoUltimasRecepciones.Count; i++)
 			{
-				mBytesRecibidos = mBytesRecibidos + ((int) (mTamañoUltimasRecepciones[i].Bytes - mTamañoUltimasRecepciones[i - 1].Bytes));
+				mBytesRecibidos = mBytesRecibidos + ((int)(mTamañoUltimasRecepciones[i].Bytes - mTamañoUltimasRecepciones[i - 1].Bytes));
 			}
 			if (mBytesRecibidos > 0)
 			{
 				TimeSpan mTiempoUsado = new TimeSpan(mTamañoUltimasRecepciones[mTamañoUltimasRecepciones.Count - 1].TimeStamp.Ticks - mTamañoUltimasRecepciones[0].TimeStamp.Ticks);
-				mVelocidadDeBajada = ((Single) (((mBytesRecibidos)*8)/(mTiempoUsado.TotalMilliseconds/1000)));
+				mVelocidadDeBajada = ((Single)(((mBytesRecibidos) * 8) / (mTiempoUsado.TotalMilliseconds / 1000)));
 			}
 			else
 			{
@@ -663,11 +717,11 @@ namespace PeerToPeerTcpUdp
 					try
 					{
 						mSempBufferSalida.WaitOne();
-						mBufferSalida.Add((byte) eCaracteresEsp.Commando);
+						mBufferSalida.Add((byte)eCaracteresEsp.Commando);
 						mBufferSalida.AddRange(comando);
-						mBufferSalida.Add((byte) eCaracteresEsp.Data);
+						mBufferSalida.Add((byte)eCaracteresEsp.Data);
 						mBufferSalida.AddRange(datos);
-						mBufferSalida.Add((byte) eCaracteresEsp.Fin);
+						mBufferSalida.Add((byte)eCaracteresEsp.Fin);
 					}
 					catch (Exception)
 					{
@@ -1052,7 +1106,7 @@ namespace PeerToPeerTcpUdp
 						if (mEnvioCheckConexion)
 						{
 							mEnvioCheckConexion = false;
-							byte[] mTest = new byte[1] {(byte) eCaracteresEsp.Ok};
+							byte[] mTest = new byte[1] { (byte)eCaracteresEsp.Ok };
 
 							try
 							{
@@ -1094,7 +1148,7 @@ namespace PeerToPeerTcpUdp
 			{
 				if (mT < 5)
 				{
-					mEnvioTemp[mPosicionTemp] = (byte) eCaracteresEsp.Barra;
+					mEnvioTemp[mPosicionTemp] = (byte)eCaracteresEsp.Barra;
 					mPosicionTemp++;
 				}
 				mEnvioTemp[mPosicionTemp] = mT;
@@ -1169,22 +1223,22 @@ namespace PeerToPeerTcpUdp
 				{
 					switch (caracterAnalizado)
 					{
-						case (byte) eCaracteresEsp.Commando:
+						case (byte)eCaracteresEsp.Commando:
 							mEstadoComandos = eEstadoComando.GuardandoComando;
 							break;
-						case (byte) eCaracteresEsp.Data:
+						case (byte)eCaracteresEsp.Data:
 							mEstadoComandos = eEstadoComando.GuardandoDatos;
 							break;
-						case (byte) eCaracteresEsp.Fin:
+						case (byte)eCaracteresEsp.Fin:
 							if (mEstadoComandos == eEstadoComando.GuardandoComando || mEstadoComandos == eEstadoComando.GuardandoDatos)
 							{
 								mEstadoComandos = eEstadoComando.ComandoFinalizado;
 							}
 							break;
-						case (byte) eCaracteresEsp.Ok:
+						case (byte)eCaracteresEsp.Ok:
 							break;
 					}
-					mUltimoCaracterEspecialRecibido = (eCaracteresEsp) caracterAnalizado;
+					mUltimoCaracterEspecialRecibido = (eCaracteresEsp)caracterAnalizado;
 					return false;
 				}
 				else
