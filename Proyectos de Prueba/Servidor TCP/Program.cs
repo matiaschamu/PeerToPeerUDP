@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Windows.Forms;
 
-namespace Servidor_TCP
+namespace Servidor_UDP
 {
     static class Program
     {

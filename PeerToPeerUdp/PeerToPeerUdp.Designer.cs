@@ -1,4 +1,4 @@
-﻿namespace PeerToPeerTcpUdp
+﻿namespace PeerToPeerUdp
 {
 	partial class PeerToPeerUdp
 	{

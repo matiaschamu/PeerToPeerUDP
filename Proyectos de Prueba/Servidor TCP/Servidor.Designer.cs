@@ -1,5 +1,5 @@
 ﻿
-namespace Servidor_TCP
+namespace Servidor_UDP
 {
     partial class Servidor
     {
@@ -83,7 +83,7 @@ namespace Servidor_TCP
 			this.groupBox2 = new System.Windows.Forms.GroupBox();
 			this.groupBox3 = new System.Windows.Forms.GroupBox();
 			this.groupBox4 = new System.Windows.Forms.GroupBox();
-			this.mClienteServidorUdp1 = new PeerToPeerTcpUdp.PeerToPeerUdp(this.components);
+			this.mClienteServidorUdp1 = new PeerToPeerUdp.PeerToPeerUdp(this.components);
 			this.groupBoxCliente.SuspendLayout();
 			this.tableLayoutPanel2.SuspendLayout();
 			this.panel4.SuspendLayout();
@@ -700,14 +700,14 @@ namespace Servidor_TCP
 			this.mClienteServidorUdp1.TestearConexion = true;
 			this.mClienteServidorUdp1.TiempomSegTestConexion = 2000;
 			//this.mClienteServidorUdp1.TipoSock = PeerToPeerTcpUdp.PeerToPeerUdp.eTipoSock.TCP;
-			this.mClienteServidorUdp1.ConexionEstablecida += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionEstablecida);
-			this.mClienteServidorUdp1.ConexionCancelada += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionCancelada);
-			this.mClienteServidorUdp1.EscuchaIniciada += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciada);
-			this.mClienteServidorUdp1.EscuchaIniciando += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciando);
-			this.mClienteServidorUdp1.EscuchaCancelada += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaCancelada);
-			this.mClienteServidorUdp1.DatosRecibidos += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_DatosRecibidos);
-			this.mClienteServidorUdp1.ComandoRecibido += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ComandoRecibido);
-			this.mClienteServidorUdp1.ConexionPerdida += new PeerToPeerTcpUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionPerdida);
+			this.mClienteServidorUdp1.ConexionEstablecida += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionEstablecida);
+			this.mClienteServidorUdp1.ConexionCancelada += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionCancelada);
+			this.mClienteServidorUdp1.EscuchaIniciada += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciada);
+			this.mClienteServidorUdp1.EscuchaIniciando += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaIniciando);
+			this.mClienteServidorUdp1.EscuchaCancelada += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_EscuchaCancelada);
+			this.mClienteServidorUdp1.DatosRecibidos += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_DatosRecibidos);
+			this.mClienteServidorUdp1.ComandoRecibido += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ComandoRecibido);
+			this.mClienteServidorUdp1.ConexionPerdida += new PeerToPeerUdp.PeerToPeerUdp.ConexionEventHandler(this.clienteServidorTCP_UDP1_ConexionPerdida);
 			// 
 			// Servidor
 			// 
@@ -776,7 +776,7 @@ namespace Servidor_TCP
 		private System.Windows.Forms.GroupBox groupBoxServidor;
 		private System.Windows.Forms.TextBox textBox1;
 		private System.Windows.Forms.Label label1;
-		private PeerToPeerTcpUdp.PeerToPeerUdp mClienteServidorUdp1;
+		private PeerToPeerUdp.PeerToPeerUdp mClienteServidorUdp1;
 		private System.Windows.Forms.Button buttonConectar;
 		private System.Windows.Forms.Button buttonunSet;
 		private System.Windows.Forms.Timer timerStatus;

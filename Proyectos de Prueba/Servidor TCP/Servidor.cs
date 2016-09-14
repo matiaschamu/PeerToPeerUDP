@@ -5,7 +5,7 @@ using System.Net.Sockets;
 using System.Text;
 using System.Windows.Forms;
 
-namespace Servidor_TCP
+namespace Servidor_UDP
 {
 	public partial class Servidor : Form
 	{
@@ -326,22 +326,22 @@ namespace Servidor_TCP
 
 
 
-		private void clienteServidorTCP_UDP1_ConexionEstablecida(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_ConexionEstablecida(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			EscribirLabelInformacion("Conectado");
 		}
 
-		private void clienteServidorTCP_UDP1_ConexionPerdida(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_ConexionPerdida(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			EscribirLabelInformacion("Conexion Perdida");
 		}
 
-		private void clienteServidorTCP_UDP1_ConexionCancelada(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_ConexionCancelada(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			EscribirLabelInformacion("Conexion cancelada");
 		}
 
-		private void clienteServidorTCP_UDP1_DatosRecibidos(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_DatosRecibidos(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			mBytesRecibidosCount += e.DatosRecibidos.Length;
 			EscribirLabelBytesCount("recibido: " + mBytesRecibidosCount);
@@ -349,7 +349,7 @@ namespace Servidor_TCP
 			mClienteServidorUdp1.ClearBufferEntrada();
 		}
 
-		private void clienteServidorTCP_UDP1_ComandoRecibido(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_ComandoRecibido(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			mComandosRecibidosCount++;
 			EscribirLabelComandosCount("recibido: " + mComandosRecibidosCount);
@@ -366,17 +366,17 @@ namespace Servidor_TCP
 			}
 		}
 
-		private void clienteServidorTCP_UDP1_EscuchaIniciada(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_EscuchaIniciada(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			EscribirLabelInformacion("Escuchando");
 		}
 
-		private void clienteServidorTCP_UDP1_EscuchaCancelada(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_EscuchaCancelada(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			EscribirLabelInformacion("Escuha cancelada");
 		}
 
-		private void clienteServidorTCP_UDP1_EscuchaIniciando(object sender, PeerToPeerTcpUdp.SockEventArgs e)
+		private void clienteServidorTCP_UDP1_EscuchaIniciando(object sender, PeerToPeerUdp.SockEventArgs e)
 		{
 			EscribirLabelInformacion("Iniciando escucha...");
 		}
