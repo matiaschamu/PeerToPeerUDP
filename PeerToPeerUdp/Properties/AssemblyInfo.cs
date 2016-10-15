@@ -5,11 +5,11 @@ using System.Runtime.InteropServices;
 // La información general sobre un ensamblado se controla mediante el siguiente 
 // conjunto de atributos. Cambie estos atributos para modificar la información
 // asociada con un ensamblado.
-[assembly: AssemblyTitle("ClienteServidorTCP_UDP")]
-[assembly: AssemblyDescription("Cliente y Servidor TCP y UDP")]
+[assembly: AssemblyTitle("ClienteServidorUDP")]
+[assembly: AssemblyDescription("Cliente y Servidor UDP")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("Matias Fernandez")]
-[assembly: AssemblyProduct("ClienteServidorTCP_UDP")]
+[assembly: AssemblyProduct("ClienteServidorUDP")]
 [assembly: AssemblyCopyright("Copyright ©  2013")]
 [assembly: AssemblyTrademark("MAF")]
 [assembly: AssemblyCulture("")]
@@ -32,5 +32,5 @@ using System.Runtime.InteropServices;
 // Puede especificar todos los valores o establecer como predeterminados los números de compilación y de revisión 
 // mediante el carácter '*', como se muestra a continuación:
 // [assembly: AssemblyVersion("1.0.*")]
-[assembly: AssemblyVersion("1.0.0.4")]
-[assembly: AssemblyFileVersion("1.0.0.4")]
+[assembly: AssemblyVersion("1.0.0.5")]
+[assembly: AssemblyFileVersion("1.0.0.5")]
