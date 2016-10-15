@@ -7,7 +7,7 @@
     <ProjectGuid>{A8A485A6-9B07-40F0-AA07-754F32E1334E}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>BibliotecaMaf.Componentes.PeerToPeerTcpUdp</RootNamespace>
+    <RootNamespace>BibliotecaMaf.Componentes.PeerToPeerUdp</RootNamespace>
     <AssemblyName>PeerToPeerUdp</AssemblyName>
     <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
